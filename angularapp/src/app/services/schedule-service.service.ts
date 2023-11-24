@@ -13,18 +13,22 @@ export class ScheduleService {
   getPackages() : Observable<any[]>{
     return this.httpclient.get<any[]>(this.apiBaseUrl + '/laundry/packages');
   }
-  getStatus() : Observable<any[]>{
+  getStatuses() : Observable<any[]>{
     return this.httpclient.get<any[]>(this.apiBaseUrl + '/laundry/status');
   }
-  getSchedule() : Observable<any[]>{
+  getSchedules() : Observable<any[]>{
     return this.httpclient.get<any[]>(this.apiBaseUrl + '/laundry/schedules');
   }
+
   httpOptions = {headers : new HttpHeaders({'content-type' : 'application/json'})}
   
   createSchedule(scheduleData : any) : Observable<any[]>{
     return this.httpclient.post<any[]>(this.apiBaseUrl + '/laundry/schedule/add' ,scheduleData,this.httpOptions);
   }
   updateSchedule(scheduleId : number ,statusId : number) : Observable<any[]>{
-    return this.httpclient.put<any[]>(this.apiBaseUrl + '/laundry/schedule/update' + scheduleId + statusId , this.httpOptions);
+    return this.httpclient.put<any[]>(this.apiBaseUrl + '/laundry/schedule/update/' + scheduleId +'/' + statusId , this.httpOptions);
+  }
+  deleteSchedule(id : number) : Observable<any[]>{
+    return this.httpclient.delete<any[]>(this.apiBaseUrl + '/laundry/schedule/delete/' + id);
   }
 }
