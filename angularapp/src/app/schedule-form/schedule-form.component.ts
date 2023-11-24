@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ScheduleService } from '../services/schedule-service.service';
-import { ActivatedRoute , Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Userschedule } from 'src/models/userschedule.model';
 
 @Component({
   selector: 'app-schedule-form',
@@ -9,16 +10,39 @@ import { ActivatedRoute , Router } from '@angular/router';
   styleUrls: ['./schedule-form.component.css']
 })
 export class ScheduleFormComponent implements OnInit {
-  [x: string]: any;
+  scheduleForm : FormGroup
+  // userschedule : Userschedule
+  scheduleForm=this.fb.group({
+    fullName:[''],
+    mobileNumber:[''],
+    email:[''],
+    address:[''],
+    area:[''],
+    pincode:[''],
+    pickupDay:[''],
+    pickupTimeSlot:[''],
+    packageId:['']
+  })
 
-  // scheduleForm : FormGroup
+  constructor(private ss : ScheduleService , private fb: formBuilder ,private ar : ActivatedRoute , private r : Router) { }
 
-  constructor(private ss : ScheduleService , private ar : ActivatedRoute , private r : Router) { }
+  
 
   ngOnInit(): void {
   }
-  // onSubmit() : void{
-    
+  
+  // onSubmit() : void {
+  // this.userschedule = this.scheduleForm.value
+  // this.ss.createSchedule(this.userschedule).subscribe(
+  //   () => {
+  //     alert("Schedule created Successfully");
+      
+
+  // });
+
   // }
+  onSubmit() : void {
+
+  }
 
 }
