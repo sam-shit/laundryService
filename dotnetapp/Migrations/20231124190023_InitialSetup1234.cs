@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace dotnetapp.Migrations
 {
-    public partial class InitialSetup : Migration
+    public partial class InitialSetup1234 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

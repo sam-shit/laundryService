@@ -12,8 +12,8 @@ using dotnetapp.Data;
 namespace dotnetapp.Migrations
 {
     [DbContext(typeof(LaundryDbContext))]
-    [Migration("20231124094222_ InitialSetup")]
-    partial class InitialSetup
+    [Migration("20231124190023_InitialSetup1234")]
+    partial class InitialSetup1234
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
